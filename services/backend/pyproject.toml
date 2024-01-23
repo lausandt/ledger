@@ -12,6 +12,7 @@ fastapi = "*"
 tortoise-orm = "*"
 aerich = "*"
 asyncpg = "*"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
 
 
 [tool.poetry.group.dev.dependencies]
@@ -20,7 +21,13 @@ pip-audit = "*"
 ruff = "*"
 pytest = "*"
 pytest-cov = "*"
+httpx = "*"
 
+
+[tool.aerich]
+tortoise_orm = "src.database.config.TORTOISE_ORM"
+location = "./migrations"
+src_folder = "./."
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
